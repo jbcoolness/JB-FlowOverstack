@@ -27,8 +27,13 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Devise Gem, user gestion
+# Devise Gem, user management
 gem 'devise'
+
+# Bootstrap and Jquery Gems for styles
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
