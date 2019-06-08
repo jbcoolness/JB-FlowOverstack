@@ -1,0 +1,22 @@
+<h1><%= @question.new_record? ? "Nuevo Pregunta" : "Editar Pregunta" %></h1>
+
+<% if @question.errors.any? %>
+        <ul>
+            <% @question.errors.full_messages.each do |message| %>
+                <li class="list-group-item list-group-item-danger"> <%= message %> </li>
+            <% end %>
+        </ul>
+<% end %>
+
+<%= form_for @question do |f| %>
+    <div class="form-group">
+        <%= f.text_field :title, class: 'form-control form-control-lg', placeholder: "Titulo de la pregunta" %>
+    </div>
+    <div class="form-group">
+        <%= f.text_area :content, class: 'form-control form-control-lg', rows: 3, placeholder: "Escriba pregunta a realizar" %>
+    </div>
+    <div class="action">
+        <%= f.submit @question.new_record? ? "Crear Pregunta" : "Editar Pregunta", class: "btn btn-primary btn-lg" %>
+        <%= link_to  "Volver", root_path, class: "btn btn-link" %>
+    </div>
+<% end %>
