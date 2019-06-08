@@ -13,12 +13,13 @@
     <header>
       <%= render 'layouts/navbar' %>
     </header>
+    
+    
     <% flash.each do |key, msg|%>
       <div class='<%= flash_msg(key)%>'>
         <p><%= msg %></p>
       </div>    
     <% end %>
-
 
       
     <%= yield %>
