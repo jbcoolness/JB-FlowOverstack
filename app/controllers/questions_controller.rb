@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
+
+
   def index
     @questions = Question.all
   end
@@ -20,11 +23,21 @@ class QuestionsController < ApplicationController
     end  
   end
 
+  def show
+  
+  end
+
 
 
 
 
   private
+
+  def set_question
+    @question = Question.find(params[:id])
+  end
+
+
   def question_params
     params.require(:question).permit(:user_id, :title, :content)
   end

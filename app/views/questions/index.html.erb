@@ -1,14 +1,17 @@
-<div class="container mt-5">
+<div class="container">
     <div class="row">
         <div class="col">
             <h1>Preguntas</h1>
         </div>
+        <div>
+            <%= link_to  "Realizar Pregunta", new_question_path, class:"btn btn-primary btn-lg" %>
+        </div>
     </div>
     <hr>
     <% @questions.each do |question|%>
-        <div class="row question d-flex justify-content-end">
+        <div class="row question d-flex justify-content-end">   
             <div class="col-2 text center">
-                <p>0</p>
+                <span>0</span>
                 <span>Votos</span>
             </div>
             <div class="col-2 text center">
@@ -16,8 +19,9 @@
                 <span>Respuestas</span>
             </div>
             <div class="col-8">
-                <h3> <%= question.title %> </h3>
-                <span>Preguntó: <%= question.user.username %> <%= time_ago_in_words(question.created_at) %> </span>
+                <span><%= link_to  question.title, question %></span>
+                
+                <span>Preguntó: <%= question.user.username %> hace <%= time_ago_in_words(question.created_at) %> </span>
             </div>
         </div>
         <hr>
