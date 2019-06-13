@@ -1,5 +1,10 @@
 <div class="container">
     <div class="row">
+        <div class="col">
+            <h1><%= @question.title %></h1>
+        </div>
+    </div>
+    <div class="row mb-5">
         <div class="col-2 text-center" >
             <span class="fa fa-thumbs-o-up"></span>
             <br>
@@ -8,18 +13,34 @@
             <span class="fa fa-thumbs-o-down"></span>
         </div>
         <div class="col-10">
-            <h1><%= @question.title %></h1>
+            
             <span> <%= @question.content %></span>
             <hr>
+            
+            <div class="mb-5 comentarios">
+                    <h5>Aqui van los comentarios</h5>
+                    <h5>Aqui otro comentarios</h5>
+                    <h5>Otro mas, me parece genial</h5>
+            </div>
+
+            <div class="form-group">                    
+                    <textarea class="form-control" name="comments" id="" cols="30" rows="2" placeholder="Escriba su comentario al respecto"></textarea>
+                </div>
+            <div class="actions">
+                    <button class="btn btn-primary btn-sm"> Comentar</button> 
+            </div>
         </div>
-        <hr>
-        <%= render 'answers/form' %>
+        
     </div>
-    <hr>
+    
     <div class="row">
-        <h2>Respuestas</h2> 
+        <div class="col mb-5">
+            <h2>Respuestas (<%= @question.answers.count() %>)</h2> 
+            <hr>
+            <%= render 'answers/form' %>
+        </div>
     </div>
-    <div>
+    <div class="row">
         <% @question.answers.each do |answer|%>
             <div class="col-2 text-center ">
                 <span class="fa fa-thumbs-o-up"></span>
@@ -29,9 +50,11 @@
                 <span class="fa fa-thumbs-o-down"></span>
             </div>
 
-            <div class="col-10 text-center text-align-item" >
+            <div class="col-10 align-content-center mb-5" >
                 <label for=""><%= answer.content %></label> <br>
+                <hr>
             </div>
+            
         <% end %>
     </div>    
 </div>
