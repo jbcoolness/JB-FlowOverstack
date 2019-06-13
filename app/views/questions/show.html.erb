@@ -13,10 +13,11 @@
             <span class="fa fa-thumbs-o-down"></span>
         </div>
         <div class="col-10">
-            
-            <span> <%= @question.content %></span>
+            <div class="question">
+                <span> <%= @question.content %></span>
+                
+            </div>
             <hr>
-            
             <div class="mb-5 comentarios">
                     <h5>Aqui van los comentarios</h5>
                     <h5>Aqui otro comentarios</h5>
@@ -34,7 +35,7 @@
     </div>
     
     <div class="row">
-        <div class="col mb-5">
+        <div class="col-12 mb-5">
             <h2>Respuestas (<%= @question.answers.count() %>)</h2> 
             <hr>
             <%= render 'answers/form' %>
@@ -42,18 +43,24 @@
     </div>
     <div class="row">
         <% @question.answers.each do |answer|%>
-            <div class="col-2 text-center ">
-                <span class="fa fa-thumbs-o-up"></span>
-                <br>
-                <span>0</span>
-                <br>
-                <span class="fa fa-thumbs-o-down"></span>
+            <div class="col-2 text-center align-content-center">
+                <div>
+                    <span class="fa fa-thumbs-o-up"></span>
+                    <br>
+                    <span>0</span>
+                    <br>
+                    <span class="fa fa-thumbs-o-down"></span>
+                </div>
             </div>
-
-            <div class="col-10 align-content-center mb-5" >
-                <label for=""><%= answer.content %></label> <br>
+            
+            <div class="col-10 align-content-center">
+                <div class="mb-5">                    
+                    <label for=""><%= answer.content %></label> <br>
+                    
+                </div>
                 <hr>
             </div>
+            
             
         <% end %>
     </div>    
