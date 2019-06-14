@@ -36,14 +36,12 @@
     
     <div class="row">
         <div class="col-12 mb-5">
-            <h2>Respuestas (<span id="count-answers"> <%= @question.answers.count()%></span>)</h2> 
+            <h2>Respuestas (<span id="count-answers"><%= @question.answers.count()%></span>)</h2> 
             <hr>
             <%= render 'answers/form'%>
         </div>
     </div>
-    <div class="row">
-        <div id="answers-list">
+    <div class="row" id="answers-list">
             <%= render @question.answers %>
-        </div>
     </div>    
 </div>

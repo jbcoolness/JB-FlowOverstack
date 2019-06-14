@@ -1,4 +1,8 @@
 $('<%= escape_javascript(render(@answer))%>').appendTo('#answers-list');
 $("#content-answer").val('');
 $('#count-answers').html('<%= @question.answers.count() %>')
-console.log('hola mundo')
+
+<!-- $("#mensaje").fadeIn(500).css("opacity", "0.85").delay(6000).slideUp(1000);
+$("#mensaje").on('click', '.alert', function () { 
+    $(this).remove() 
+}) -->

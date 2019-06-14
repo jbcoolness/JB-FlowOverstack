@@ -12,11 +12,10 @@
   <body>
     <header class="mb-5">
       <%= render 'layouts/navbar' %>
-    </header>
-    
+    </header>    
     
     <% flash.each do |key, msg|%>
-      <div class='<%= flash_msg(key)%>'>
+      <div class='<%= flash_msg(key)%>' id='mensaje'>
         <p><%= msg %></p>
       </div>    
     <% end %>
