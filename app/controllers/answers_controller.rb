@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   # before_action :set_answer, except: [:create]
-  # before_action :set_question, only: [:create, :edit]
+  # before_action :set_question, only: [:create, :update, :destroy]
   
 
   
@@ -18,13 +18,22 @@ class AnswersController < ApplicationController
         
       else
         format.html { redirect_to question_path(@question), alert: 'Error, please try again.'}
-        #format.json { render json: @answer.errors, status: :unprocessable_entity }
-        #flash[:alert] = "Error, try again"
-        #render :show
+        format.js
         
-      end 
-    
+      end     
+    end    
+  end
+
+  def destroy
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+    @answer.destroy
+
+    respond_to do |format|
+      format.html {redirect_to question_path(@question) }
+      format.js
     end
+    
   end
 
 
@@ -34,12 +43,12 @@ class AnswersController < ApplicationController
 
   private
 
-  # def set_answer
-  #   @answer = Answer.find(params[:id])
-  # end
-
   # def set_question
   #   @question = Question.find(params[:question_id])
+  # end
+
+  # def set_answer
+  #   @answer = @question.answers.find(params[:id])
   # end
 
   def answer_params
