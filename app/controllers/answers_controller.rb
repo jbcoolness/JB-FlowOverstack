@@ -6,16 +6,25 @@ class AnswersController < ApplicationController
   
   def create
     @question = Question.find(params[:question_id])
-    @answer = @question.answers.create(answer_params)
+    @answer = @question.answers.new(answer_params)
     @answer.user = current_user    
   
-    if @answer.save
-      flash[:notice] = 'Answer was successfully created.'
-      redirect_to question_path(@question)
-    else
-      flash[:alert] = "Error, try again"
-      render :show
-    end 
+    respond_to do |format|  
+    
+      if @answer.save
+        format.html { redirect_to question_path(@question), notice: 'Answer was successfully created.'}
+        format.js
+        #format.json {render :show, status: :created, location: @answer }
+        
+      else
+        format.html { redirect_to question_path(@question), alert: 'Error, please try again.'}
+        #format.json { render json: @answer.errors, status: :unprocessable_entity }
+        #flash[:alert] = "Error, try again"
+        #render :show
+        
+      end 
+    
+    end
   end
 
 

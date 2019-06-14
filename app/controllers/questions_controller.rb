@@ -23,9 +23,9 @@ class QuestionsController < ApplicationController
     end  
   end
 
-  
+
   def show
-  
+    
   end
 
 
