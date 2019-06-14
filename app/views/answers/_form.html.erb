@@ -1,8 +1,8 @@
-<%= form_for [@question, @question.answers.build] do |f| %>
+<%= form_for [@question, @question.answers.build], remote: true do |f| %>
         
         <div class="form-group">
                 <h5 class="mb-5">Si usted sabe o conoce de alguien que pueda ayudar con la respuesta, contribuya. Gracias!</h5>
-            <%= f.text_area :content, class:"form-control", placeholder: "Escriba su posible respuesta", rows: 5 %>
+            <%= f.text_area :content, class:"form-control", id: "content-answer", placeholder: "Escriba su posible respuesta", rows: 5 %>
         </div>
         <div class="actions">
             <%= f.submit 'Enviar', class: "btn btn-primary btn-sm" %>

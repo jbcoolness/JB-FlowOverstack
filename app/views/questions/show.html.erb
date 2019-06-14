@@ -36,32 +36,14 @@
     
     <div class="row">
         <div class="col-12 mb-5">
-            <h2>Respuestas (<%= @question.answers.count() %>)</h2> 
+            <h2>Respuestas (<span id="count-answers"> <%= @question.answers.count()%></span>)</h2> 
             <hr>
-            <%= render 'answers/form' %>
+            <%= render 'answers/form'%>
         </div>
     </div>
     <div class="row">
-        <% @question.answers.each do |answer|%>
-            <div class="col-2 text-center align-content-center">
-                <div>
-                    <span class="fa fa-thumbs-o-up"></span>
-                    <br>
-                    <span>0</span>
-                    <br>
-                    <span class="fa fa-thumbs-o-down"></span>
-                </div>
-            </div>
-            
-            <div class="col-10 align-content-center">
-                <div class="mb-5">                    
-                    <label for=""><%= answer.content %></label> <br>
-                    
-                </div>
-                <hr>
-            </div>
-            
-            
-        <% end %>
+        <div id="answers-list">
+            <%= render @question.answers %>
+        </div>
     </div>    
 </div>
