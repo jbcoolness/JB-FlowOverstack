@@ -9,17 +9,14 @@ class AnswersController < ApplicationController
     @answer = @question.answers.new(answer_params)
     @answer.user = current_user    
   
-    respond_to do |format|  
-    
+    respond_to do |format|    
       if @answer.save
         format.html { redirect_to question_path(@question), notice: 'Answer was successfully created.'}
         format.js
-        #format.json {render :show, status: :created, location: @answer }
-        
+        #format.json {render :show, status: :created, location: @answer }        
       else
         format.html { redirect_to question_path(@question), alert: 'Error, please try again.'}
-        format.js
-        
+        format.js        
       end     
     end    
   end
@@ -32,8 +29,7 @@ class AnswersController < ApplicationController
     respond_to do |format|
       format.html {redirect_to question_path(@question) }
       format.js
-    end
-    
+    end    
   end
 
 

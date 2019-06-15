@@ -1,2 +1,3 @@
 $('#answer_<%= @answer.id %>').remove();
-console.log('Estoy eliminando');
+$('#count-answers').html('<%= @question.answers.count() %>')
+<!-- console.log('Estoy eliminando'); -->
