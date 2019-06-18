@@ -4,4 +4,5 @@
 <% elsif @comment.commentable_type == "Question"%>
     $("<%= escape_javascript(render(@comment)) %>").appendTo('#question-comments-list');
     $('#content-comment').val('');
+    <!-- $('span #count-comments-question').html('<%#= @question.comments.count() %>'); -->
 <% end %>

@@ -13,15 +13,19 @@
         <div class="align-content-center">
             <p><%= answer.content %></p> 
             <%= link_to "Borrar", [answer.question, answer], method: :delete, data:{ confirm: "Estás seguro de eliminar su respuesta?"}, remote: true %>
+        </div>
+
+        <%= link_to "Comentarios ", "#", class: 'show-comments', data: {'js-show-question-comments-link' => true} %> <span id="count-comments-question"> ( <%= answer.comments.count() %>) </span>
+        <div id="show-commnents-answer">
+            <div id="comments-answers-list">
+                <%= render answer.comments %>
+                <!-- muestra lista de comentarios de esa respuesta -->
+            </div>
+            <div class="mb-5" id="question-comment-form">
+                <%= render  "comments/form", commentable: answer %>
+                <!-- muestra formulario de comentarios para esa respuesta -->
+            </div>
             <hr>
-        </div>
-        <div id="comments-answers-list">
-            <%= render answer.comments %>
-            <!-- muestra lista de comentarios de esa respuesta -->
-        </div>
-        <div class="mb-5" id="question-comment-form">
-            <%= render  "comments/form", commentable: answer %>
-            <!-- muestra formulario de comentarios para esa respuesta -->
         </div>
     </div>
 </div>

@@ -12,21 +12,23 @@
             <br>
             <span class="fa fa-thumbs-o-down"></span>
         </div>
-        <div class="col-10">
+        <div class="col-10">           
             <div class="question">
-                <span> <%= @question.content %></span>
-                
+                <span> <%= @question.content %></span>                
             </div>
             <hr>
-            <div class="mb-5" id="question-comments-list">
-                    <%= render  @question.comments %>
-                    <!-- muestra los comentarios de la pregunta -->
-            </div>
+            <%= link_to "Comentarios ", "#", class: 'show-comments', data: {'js-show-link' => true} %> <span id="count-comments-question">(<%= @question.comments.count()%>)</span>
+            <div id="show-comments-question">
+                <div class="mb-5" id="question-comments-list">
+                        <%= render  @question.comments %>
+                        <!-- muestra los comentarios de la pregunta -->
+                </div>
 
-            <div class="mb-5 align-items-end" id="question-comment-form">                    
-                  <%= render "comments/form", commentable: @question %>
-                  <!-- muestra el formulario para incluir un nuevo comentario a la pregunta -->
-            </div>        
+                <div class="mb-5" id="question-comment-form">                    
+                    <%= render "comments/form", commentable: @question %>
+                    <!-- muestra el formulario para incluir un nuevo comentario a la pregunta -->
+                </div>
+            </div>
         </div>
     </div>
     
