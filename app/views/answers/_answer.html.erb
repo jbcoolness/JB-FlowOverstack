@@ -15,11 +15,13 @@
             <%= link_to "Borrar", [answer.question, answer], method: :delete, data:{ confirm: "Estás seguro de eliminar su respuesta?"}, remote: true %>
             <hr>
         </div>
-        <div id="list-answers-question">
+        <div id="comments-answers-list">
             <%= render answer.comments %>
+            <!-- muestra lista de comentarios de esa respuesta -->
         </div>
-        <div id="question-comment-form">
+        <div class="mb-5" id="question-comment-form">
             <%= render  "comments/form", commentable: answer %>
+            <!-- muestra formulario de comentarios para esa respuesta -->
         </div>
     </div>
 </div>

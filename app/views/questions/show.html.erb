@@ -18,13 +18,14 @@
                 
             </div>
             <hr>
-            <div class="mb-5" id="comment-list">
+            <div class="mb-5" id="question-comments-list">
                     <%= render  @question.comments %>
                     <!-- muestra los comentarios de la pregunta -->
             </div>
 
-            <div class= "mb-5" id="question-comment-form">                    
-                  <%= render "comments/form", commentable: @question %>  
+            <div class="mb-5 align-items-end" id="question-comment-form">                    
+                  <%= render "comments/form", commentable: @question %>
+                  <!-- muestra el formulario para incluir un nuevo comentario a la pregunta -->
             </div>        
         </div>
     </div>
@@ -46,5 +47,6 @@
 
     <div class="answer-form">
         <%= render 'answers/form'%>
+        <!-- muestra el formulario de respuesta a esa pregunta -->
     </div>
 </div>
