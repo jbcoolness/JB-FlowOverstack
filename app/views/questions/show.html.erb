@@ -18,30 +18,33 @@
                 
             </div>
             <hr>
-            <div class="mb-5 comentarios">
-                    <h5>Aqui van los comentarios</h5>
-                    <h5>Aqui otro comentarios</h5>
-                    <h5>Otro mas, me parece genial</h5>
+            <div class="mb-5" id="comment-list">
+                    <%= render  @question.comments %>
+                    <!-- muestra los comentarios de la pregunta -->
             </div>
 
-            <div class="form-group">                    
-                    <textarea class="form-control" name="comments" id="" cols="30" rows="2" placeholder="Escriba su comentario al respecto"></textarea>
-                </div>
-            <div class="actions">
-                    <button class="btn btn-primary btn-sm"> Comentar</button> 
-            </div>
+            <div class= "mb-5" id="question-comment-form">                    
+                  <%= render "comments/form", commentable: @question %>  
+            </div>        
         </div>
-        
     </div>
     
     <div class="row">
-        <div class="col-12 mb-5">
-            <h2>Respuestas (<span id="count-answers"><%= @question.answers.count()%></span>)</h2> 
-            <hr>
-            <%= render 'answers/form'%>
+        <div class="col">
+            <div class="mb-5">
+                <h2>Respuestas (<span id="count-answers"><%= @question.answers.count()%></span>)</h2> 
+                <hr>
+            </div>            
         </div>
     </div>
+    
     <div class="row" id="answers-list">
-            <%= render @question.answers %>
-    </div>    
+        <div class=" d-block">
+            <%= render @question.answers.order(created_at: :ASC) %>            
+        </div>
+    </div>
+
+    <div class="answer-form">
+        <%= render 'answers/form'%>
+    </div>
 </div>

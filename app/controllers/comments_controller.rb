@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
     def create
         @parent = comment_type
-        @commet = @parent.comments.new(comment_params)    
+        @comment = @parent.comments.new(comment_params)    
 
         respond_to do |format|
             if @comment.save
@@ -24,14 +24,14 @@ class CommentsController < ApplicationController
 
     def comment_type
         if params[:question_id]
-            Question.find([:question_id])
+            Question.find(params[:question_id])
         else
-            Answer.find([:answer_id])
+            Answer.find(params[:answer_id])
         end    
     end
 
     def comment_params
-        params.require(:commet).permit(:content).merge(user_id: current_user.id)    
+        params.require(:comment).permit(:content).merge(user_id: current_user.id)    
     end
 
 end
