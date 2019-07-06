@@ -16,13 +16,11 @@
         </div>
 
         <%= link_to "Comentarios ", "#", class: 'show-comments', data: {'js-show-question-comments-link' => true} %> <span id="count-comments-question"> ( <%= answer.comments.count() %>) </span>
-
-        <div class="mt-3" id="show-commnents-answer-<%= answer.id %>">
+        <div id="show-commnents-answer">
             <div id="comments-answers-list">
                 <%= render answer.comments %>
                 <!-- muestra lista de comentarios de esa respuesta -->
             </div>
-
             <div class="mb-5" id="question-comment-form">
                 <%= render  "comments/form", commentable: answer %>
                 <!-- muestra formulario de comentarios para esa respuesta -->
