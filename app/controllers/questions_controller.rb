@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
 
 
   def index
-    @questions = Question.all
+    @questions = Question.search(params[:search]).order(created_at: :desc)
   end
 
   def new

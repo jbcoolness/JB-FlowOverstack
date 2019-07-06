@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 2.5'
 # Devise Gem, user management
 gem 'devise'
 
+# Show shcema Info on the models
+gem 'annotate'
+
 # Bootstrap and Jquery Gems for styles
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
